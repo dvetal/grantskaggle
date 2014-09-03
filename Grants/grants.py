@@ -4,11 +4,17 @@
 Created on Mon Sep  1 10:49:12 2014
 
 @author: francesco
+
+this script load clean.csv and creates a vertical table where each grant
+application team is split in single researchers. Saves the result in vertical.csv
+
 """
 import pandas as pd
 import numpy as np
 
-grants = pd.read_csv('/home/francesco/Dropbox/DSR/5Week/raw.csv')
+grants = pd.read_csv('/home/francesco/Dropbox/DSR/5Week/grantskaggle/Grants/clean.csv')
+
+grants = grants.iloc[:,1:]
 
 columns = grants.columns
 col = columns[26:]
@@ -46,4 +52,4 @@ for i in range(grants.shape[0]):
 
 vertical = vertical[pd.isnull(vertical.PersonID)==False]
 vertical = vertical[1:]    
-vertical.to_csv('vertical.csv')
+vertical.to_csv('vertical.csv', index=False)
