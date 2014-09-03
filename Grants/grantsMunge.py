@@ -177,7 +177,7 @@ for m in grants.columns:
 # for example for the original RFCD2 column may not be used for an individual 
 grants = grants.drop('RFCD0.0',1)
 grants = grants.drop('SEO0.0',1)
-rawGrants['Startdate'] = pd.to_datetime(pd.Series(rawGrants['Startdate']))
+grants['Startdate'] = pd.to_datetime(pd.Series(grants['Startdate']))
 
 grants.to_csv('data/grants.csv')
 
